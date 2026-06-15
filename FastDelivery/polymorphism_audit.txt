@@ -1,0 +1,16 @@
+===============================================================================
+FASTDELIVERY SYSTEM - POLYMORPHISM BUG AUDIT REPORT
+===============================================================================
+1. Lỗi xuất phát từ việc dùng Overloading phương thức calculate(Order o) tại lớp FeeCalculator.
+2. Overloading vận hành dựa trên cơ chế Static Binding (Liên kết tĩnh) tại Compile-time.
+3. Khi duyệt mảng hoặc khai báo 'Order o2 = new ExpressOrder()', kiểu tham chiếu là 'Order'.
+4. Trình biên dịch (Compiler) chỉ nhìn vào kiểu tham chiếu 'Order' này để chọn hàm tương thích.
+5. Do đó, Compiler đã liên kết cứng mã bytecode của lệnh gọi o2 về hàm 'calculate(Order o)'.
+6. Bản chất thực sự của đối tượng trong bộ nhớ Heap (ExpressOrder) hoàn toàn bị phớt lờ.
+7. Hệ quả: Hệ thống liên tục trả về cước 15000 của đơn Standard cho mọi loại đơn hàng khác.
+8. Khắc phục: Chuyển dịch logic tính tiền vào bên trong bản thân cấu trúc các lớp đơn hàng.
+9. Sử dụng cơ chế Overriding kết hợp với phương thức abstract tại lớp cha.
+10. Nhờ đó, JVM buộc phải kích hoạt cơ chế Dynamic Binding (Liên kết muộn) tại thời điểm chạy.
+11. JVM sẽ nhìn vào kiểu thực tế trong bộ nhớ Heap để gọi đúng hàm của lớp con.
+12. Cước phí được tính chính xác tuyệt đối: Standard là 15000, Express phục hồi về 30000.
+===============================================================================
