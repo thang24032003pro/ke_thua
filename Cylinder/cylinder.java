@@ -2,7 +2,7 @@ public class Cylinder extends Circle {
     private double height = 1.0;
 
     public Cylinder() {
-        super(); // Gọi constructor mặc định của lớp cha
+        super();
     }
 
     public Cylinder(double height) {
@@ -11,11 +11,13 @@ public class Cylinder extends Circle {
     }
 
     public Cylinder(double radius, double height) {
-        super(radius); // Gọi constructor 1 tham số của lớp cha
+        super(radius);
+        this.height = height;
     }
 
     public Cylinder(double radius, double height, String color) {
-        super(radius, color); // Gọi constructor 2 tham số của lớp cha
+        super(radius, color);
+        this.height = height;
     }
 
     public double getHeight() {
@@ -26,14 +28,13 @@ public class Cylinder extends Circle {
         this.height = height;
     }
 
-    // Tính thể tích hình trụ: Diện tích đáy * Chiều cao
+    // Tính thể tích hình trụ: diện tích đáy * chiều cao
     public double getVolume() {
-        return getArea() * height; 
+        return getArea() * height;
     }
 
     @Override
     public String toString() {
-        // Tái sử dụng toString của lớp cha bằng từ khóa super
         return "Cylinder[" + super.toString() + ", height=" + height + ", volume=" + getVolume() + "]";
     }
 }
