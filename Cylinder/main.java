@@ -1,25 +1,29 @@
+public class main {
+
+}
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("=== KIỂM THỬ LỚP CIRCLE ===");
+        System.out.println("=== KIỂM THỬ LỚP CHA: CIRCLE ===");
         Circle c1 = new Circle();
-        System.out.println(c1);
+        System.out.println("Mặc định: " + c1);
 
-        Circle c2 = new Circle(2.5, "blue");
-        System.out.println(c2);
-        System.out.println("Bán kính c2: " + c2.getRadius() + " | Diện tích c2: " + c2.getArea());
+        Circle c2 = new Circle(3.5, "blue");
+        System.out.println("Tùy biến: " + c2);
+        System.out.println("Diện tích c2 thực tế: " + c2.getArea());
 
-        System.out.println("\n=== KIỂM THỬ LỚP CYLINDER ===");
+        System.out.println("\n=== KIỂM THỬ LỚP CON: CYLINDER ===");
         Cylinder cy1 = new Cylinder();
-        System.out.println(cy1);
+        System.out.println("Mặc định: " + cy1);
 
-        Cylinder cy2 = new Cylinder(3.0, 5.0, "yellow");
-        System.out.println(cy2);
-        System.out.println("Thể tích cy2: " + cy2.getVolume());
-        
-        // Thử nghiệm thay đổi thuộc tính qua Setter
-        cy2.setRadius(2.0);
+        Cylinder cy2 = new Cylinder(2.5, 6.0, "green");
+        System.out.println("Tùy biến: " + cy2);
+        System.out.println("Thể tích cy2 thực tế: " + cy2.getVolume());
+
+        System.out.println("\n=== KIỂM TRA THAY ĐỔI THUỘC TÍNH (SETTER) ===");
+        cy2.setRadius(4.0);
         cy2.setHeight(10.0);
-        cy2.setColor("green");
-        System.out.println("Sau khi cập nhật cy2: " + cy2);
+        cy2.setColor("purple");
+        System.out.println("Sau khi cập nhật lại dữ liệu cy2: " + cy2);
     }
 }

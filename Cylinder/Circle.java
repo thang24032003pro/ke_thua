@@ -2,13 +2,16 @@ public class Circle {
     private double radius = 1.0;
     private String color = "red";
 
+    // Constructor không tham số
     public Circle() {
     }
 
+    // Constructor 1 tham số bán kính
     public Circle(double radius) {
         this.radius = radius;
     }
 
+    // Constructor 2 tham số bán kính và màu sắc
     public Circle(double radius, String color) {
         this.radius = radius;
         this.color = color;
@@ -30,13 +33,13 @@ public class Circle {
         this.color = color;
     }
 
-    // Tính diện tích hình tròn: π * r^2
+    // Tính diện tích hình tròn
     public double getArea() {
         return Math.PI * radius * radius;
     }
 
     @Override
     public String toString() {
-        return "Circle[radius=" + radius + ", color=" + color + "]";
+        return "Circle[radius=" + radius + ", color=" + color + ", area=" + getArea() + "]";
     }
 }
